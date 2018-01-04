@@ -3,6 +3,13 @@ Notes and files for the Python full stack developer course!
 
 # SET UP APPLICATION!
 
+## create environment
+`conda create --name myEnv django`
+
+## activate environment
+`source activate myEnv`
+  * (deactivate to deactivate)
+
 ## Create a django project command
 `django-admin startproject first_project`
 
@@ -43,5 +50,5 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
 ]
 ```
-* this imports views from each application you create
+  * this imports views from each application you create
 
