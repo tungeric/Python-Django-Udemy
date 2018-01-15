@@ -28,7 +28,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'first_app'
+    'first_app' # <----- add this!
 ]
 ```
 
@@ -64,4 +64,29 @@ from first_app import views
 urlpatterns = [
   url(r'^$', views.index, name='index'),
 ]
+```
+
+## In your base project directory, add a `templates` folder.
+
+## In `settings.py`, add a reference to the folder you just made
+(right below BASE_DIR)
+`TEMPLATE_DIR = os.path.join(BASE_DIR,"templates")`
+
+Add `TEMPLATE_DIR` to `DIRS` section of `TEMPLATES` in `settings.py`
+
+## In templates folder, create a file `index.html` where you just put your basic HTML starter stuff.
+### Add a line `{{ insert_me }}` to input your template
+
+# Add to views.py
+Your `views.py` should now look like this:
+
+```python
+from django.shortcuts import render # <---- important!
+from django.http import HttpResponse
+
+# Create your views here.
+
+def index(request):
+  my_dict = {'insert_me':"Now I am from first_app/index.html!"}
+  return render(request,'first_app/index.html',context=my_dict)
 ```
